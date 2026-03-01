@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TeamManagers index{% endblock %}
+
+{% block body %}
+    <h1>TeamManagers index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>City</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for team_manager in team_managers %}
+            <tr>
+                <td>{{ team_manager.id }}</td>
+                <td>{{ team_manager.firstName }}</td>
+                <td>{{ team_manager.lastName }}</td>
+                <td>{{ team_manager.email }}</td>
+                <td>{{ team_manager.phone }}</td>
+                <td>{{ team_manager.city }}</td>
+                <td>
+                    <a href="{{ path('app_team_managers_show', {'id': team_manager.id}) }}">show</a>
+                    <a href="{{ path('app_team_managers_edit', {'id': team_manager.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_team_managers_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TeamTermsAcceptance{% endblock %}
+
+{% block body %}
+    <h1>Edit TeamTermsAcceptance</h1>
+
+    {{ include('team_terms_acceptance/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_team_terms_acceptance_index') }}">back to list</a>
+
+    {{ include('team_terms_acceptance/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TeamManagers{% endblock %}
+
+{% block body %}
+    <h1>Create new TeamManagers</h1>
+
+    {{ include('team_managers/_form.html.twig') }}
+
+    <a href="{{ path('app_team_managers_index') }}">back to list</a>
+{% endblock %}
