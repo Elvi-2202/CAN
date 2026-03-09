@@ -1,0 +1,78 @@
+.payment-page {
+  display: flex;
+  justify-content: center;   /* centre horizontalement */
+  align-items: center;       /* centre verticalement */
+  width: 100vw;
+  height: 100vh;
+  background: #eef2f6;
+}
+
+.payment-card {
+  width: 420px;
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.payment-header {
+  background: #27496d;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 8px 8px 0 0;
+  margin: -25px -25px 20px -25px;
+}
+
+.payment-subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.payment-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.expiration-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.small-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.pay-btn {
+  width: 100%;
+  padding: 14px;
+  background: #2e8b57;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.pay-btn:hover {
+  background: #246b45;
+}
+
+.secure-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #666;
+}
