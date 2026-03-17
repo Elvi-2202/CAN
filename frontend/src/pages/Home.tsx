@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function App() {
+export default function Home() {
   const [message, setMessage] = useState("Chargement...");
   const [error, setError] = useState("");
 
@@ -27,5 +27,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
