@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 
 export default function Home() {
   const [message, setMessage] = useState("Chargement...");
@@ -21,9 +23,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Test connexion API Symfony + React</h1>
-      {error ? <p style={{ color: "red" }}>{error}</p> : <p>{message}</p>}
+    <>  
+    <Navbar />
+    <div>
+      <div style={{ padding: "2rem" }}>
+        <h1>Test connexion API Symfony + Reactfrom home page</h1>
+        {error ? <p style={{ color: "red" }}>{error}</p> : <p>{message}</p>}
+        <p>PAGE HOME</p>
+      </div>
     </div>
+
+    </>
   );
 }

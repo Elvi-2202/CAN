@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import TeamRegistrationForm from "./pages/TeamRegistrationForm";
+import Home from "./pages/Home"; 
 
 function App() {
   const [message, setMessage] = useState("Chargement...");
@@ -21,11 +25,19 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Test connexion API Symfony + React</h1>
-      {error ? <p style={{ color: "red" }}>{error}</p> : <p>{message}</p>}
-    </div>
+      <>
+        <BrowserRouter>
+            <Routes>  
+                <Route path="/" element={<Home />} />
+                <Route path="/teams" element={<div>Page des équipes</div>} />
+                <Route path="/TeamRegistrationForm" element={<TeamRegistrationForm />} />
+                <Route path="/payment" element={<div>Page de paiement</div>} />
+
+            </Routes>
+        </BrowserRouter>
+      </>
   );
 }
+
 
 export default App;

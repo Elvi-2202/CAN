@@ -32,12 +32,17 @@ class Teams
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $updateAt = null;
+    private ?\DateTimeImmutable $updatedAt = null;
 
     /**
      * @var Collection<int, Players>
      */
-    #[ORM\OneToMany(targetEntity: Players::class, mappedBy: 'team')]
+    #[ORM\OneToMany(
+        targetEntity: Players::class,
+        mappedBy: 'team',
+        cascade: ['persist', 'remove'],
+        orphanRemoval: true
+    )]
     private Collection $players;
 
     #[ORM\OneToOne(mappedBy: 'team', cascade: ['persist', 'remove'])]
@@ -123,14 +128,14 @@ class Teams
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTimeImmutable
     {
-        return $this->updateAt;
+        return $this->updatedAt;
     }
 
-    public function setUpdateAt(\DateTimeImmutable $updateAt): static
+    public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
     {
-        $this->updateAt = $updateAt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -156,7 +161,6 @@ class Teams
     public function removePlayer(Players $player): static
     {
         if ($this->players->removeElement($player)) {
-            // set the owning side to null (unless already changed)
             if ($player->getTeam() === $this) {
                 $player->setTeam(null);
             }
@@ -170,14 +174,13 @@ class Teams
         return $this->teamManagers;
     }
 
-    public function setTeamManagers(TeamManagers $teamManagers): static
+    public function setTeamManagers(?TeamManagers $teamManagers): static
     {
-        // set the owning side of the relation if necessary
-        if ($teamManagers->getTeam() !== $this) {
+        $this->teamManagers = $teamManagers;
+
+        if ($teamManagers !== null && $teamManagers->getTeam() !== $this) {
             $teamManagers->setTeam($this);
         }
-
-        $this->teamManagers = $teamManagers;
 
         return $this;
     }
@@ -203,7 +206,6 @@ class Teams
     public function removePayment(Payments $payment): static
     {
         if ($this->payments->removeElement($payment)) {
-            // set the owning side to null (unless already changed)
             if ($payment->getTeam() === $this) {
                 $payment->setTeam(null);
             }
@@ -217,14 +219,13 @@ class Teams
         return $this->teamTermsAcceptance;
     }
 
-    public function setTeamTermsAcceptance(TeamTermsAcceptance $teamTermsAcceptance): static
+    public function setTeamTermsAcceptance(?TeamTermsAcceptance $teamTermsAcceptance): static
     {
-        // set the owning side of the relation if necessary
-        if ($teamTermsAcceptance->getTeam() !== $this) {
+        $this->teamTermsAcceptance = $teamTermsAcceptance;
+
+        if ($teamTermsAcceptance !== null && $teamTermsAcceptance->getTeam() !== $this) {
             $teamTermsAcceptance->setTeam($this);
         }
-
-        $this->teamTermsAcceptance = $teamTermsAcceptance;
 
         return $this;
     }

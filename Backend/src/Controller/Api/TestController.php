@@ -12,7 +12,7 @@ class TestController extends AbstractController
     public function index(): JsonResponse
     {
         return $this->json([
-            'message' => 'Connexion front/back OK graçe à NG  🚀'
+            'message' => 'Connexion front/back réussie !',
         ]);
     }
 }

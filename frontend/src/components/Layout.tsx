@@ -1,13 +1,25 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
     <div>
       <nav>
         <ul>
-          <li><Link to="/">Accueil</Link></li>
-          <li><Link to="/teams">Équipe</Link></li>
-          <li><Link to="/payment">Paiement</Link></li>
+          <li>
+            <NavLink to="/">Accueil</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/teams">Équipes</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/register">Inscription</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/payment">Paiement</NavLink>
+          </li>
         </ul>
       </nav>
 
